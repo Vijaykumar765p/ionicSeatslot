@@ -2,20 +2,7 @@ page-home {
     *,*:before,*:after {
         box-sizing: border-box;
       }
-      html {
-        font-size: 16px;
-      }
-      
-    //   .plane {
-    //     margin: 20px auto;
-    //     max-width: 300px;
-    //   }
-      
-        h1 {
-          width: 60%;
-          margin: 100px auto 35px auto;
-        }
-      }
+    }
       
       .exit {
         position: relative;
@@ -61,11 +48,11 @@ page-home {
         padding: 4px;
         position: relative;  
         &:nth-child() {
-          margin-left: 15%;
+          margin-left: 14.28571428571429%;
         }
         input[type=checkbox] {
           position: absolute;
-          opacity: 10;
+          opacity: 0;
         }
         input[type=checkbox]:checked {
           + label {
@@ -118,7 +105,7 @@ page-home {
             left: 50%;
             transform: translate(-50%, 0%);
             background: rgba(255,255,255,.4);
-            border-radius: 3px;
+            border-radius: 4px;
           }
           &:hover {
             cursor: pointer;

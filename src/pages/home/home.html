@@ -1,3 +1,13 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>Welcome</ion-title>
+      <ion-buttons end>
+          <button ion-button tappable (click)="logout()">
+            <ion-icon name="custom-logout"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 <ion-content padding>
   <ion-item>
     <ion-label>Select Trip</ion-label>
@@ -18,136 +28,33 @@
     </ion-select>
   </ion-item>
   <button (click)="findBus()" ion-button full color="light">Find a Bus</button>
+  <br>
 
+  <!-- Seat selection div -->
   <ion-item>
-    <!-- Seat selection div -->
     <div id="busDetail" style="display:none;">
       <div>
         <h3>Select your seats</h3>
       </div>
 
-      <ol>
-        <li class="row row--1">
-          <ol class="seats" type="A">
-            <li class="seat">
-              <input type="checkbox" id="1A" />
-              <label for="1A">1A</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1B" />
-              <label for="1B">1B</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1C" />
-              <label for="1C">1C</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1D" />
-              <label for="1D">1D</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1C" />
-              <label for="1C">1E</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1D" />
-              <label for="1D">1F</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1D" />
-              <label for="1D">1G</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1D" />
-              <label for="1D">1H</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="1D" />
-              <label for="1D">1I</label>
-            </li>
-          </ol>
-        </li>
-        <li class="row row--2">
-          <ol class="seats" type="A">
-            <li class="seat">
-              <input type="checkbox" id="2A" />
-              <label for="2A">2A</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2B" />
-              <label for="2B">2B</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2C" />
-              <label for="2C">2C</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2D" />
-              <label for="2D">2D</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2E" />
-              <label for="2E">2E</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2F" />
-              <label for="2F">2F</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2G" />
-              <label for="2G">2G</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2H" />
-              <label for="2H">2H</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="2I" />
-              <label for="2I">2I</label>
-            </li>
-          </ol>
-        </li>
-        <li class="row row--3">
-          <ol class="seats" type="A">
-            <li class="seat">
-              <input type="checkbox" id="3A" />
-              <label for="3A">3A</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3B" />
-              <label for="3B">3B</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3C" />
-              <label for="3C">3C</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3D" />
-              <label for="3D">3D</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3E" />
-              <label for="3E">3E</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3F" />
-              <label for="3F">3F</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3G" />
-              <label for="3G">3G</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3H" />
-              <label for="3H">3H</label>
-            </li>
-            <li class="seat">
-              <input type="checkbox" id="3I" />
-              <label for="3I">3I</label>
-            </li>
-          </ol>
-        </li>
-      </ol>
+      <div>
+        <ol *ngFor="let check of SelectSeat">
+          <li class="row row--1">
+            <ol class="seats" type="A">
+              <li class="seat" display:inline>
+                <input type="checkbox" id="1A" />
+                <label for="1A">{{check.seat}}</label>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <br>
+        <button ion-button full color="primary">Confirm Seats</button>
+      </div>
     </div>
+
   </ion-item>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { LoginPage } from '../../pages/login/login';
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,9 @@ export class HomePage {
   locationtolist : any;
   tripList : any;
   trip1 : any;
+  public SelectSeat: Array<any> = [
+    {seat: '1' },{seat: '2'},{seat: '3'}
+  ]
   constructor(public navCtrl: NavController, public restProvider: RestProvider) {
      this.gettrip();
   }
@@ -52,5 +56,9 @@ export class HomePage {
       console.log(this.locationtolist);
     }
     );
+  }
+  logout(){  
+    localStorage.clear();
+    this.navCtrl.setRoot(LoginPage);
   }
 }

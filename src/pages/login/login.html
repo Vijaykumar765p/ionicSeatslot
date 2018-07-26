@@ -7,25 +7,25 @@
         <strong>Welcome to</strong> BMTC
       </h2>
     </div> -->
-    <form class="list-form">
+    <form #formCtrl="ngForm" class="list-form">
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
           Email ID
         </ion-label>
-        <ion-input type="text"  autocapitalize="off" required></ion-input>
+        <ion-input type="text" name="username" [(ngModel)]="user.username" autocapitalize="off" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
           Password
         </ion-label>
-        <ion-input type="password"  autocapitalize="off" required></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="user.password" autocapitalize="off" required></ion-input>
       </ion-item>
       <div>
-        <button id="login" ion-button color="positive" block on-click="login()">
-          Log in
-        </button>
+          <button id="login" [disabled]="!formCtrl.form.valid" ion-button color="positive" block on-click="login(loginData)">
+              Log in
+            </button>
         <p text-right ion-text color="primary" tappable (click)="forgotPass()">
           <strong>Forgot Password?</strong>
         </p>

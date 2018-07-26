@@ -75,7 +75,7 @@ gettolocation(trip) {
         let options = new RequestOptions({ headers: headers });
 
       this.http
-          .post(apiUrl+'login', formdata, options)
+          .post(apiUrl+'bmtcslotlogin', formdata, options)
           .subscribe(data => 
           {
             cb(data);
