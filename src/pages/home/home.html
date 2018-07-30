@@ -37,7 +37,18 @@
         <h3>Select your seats</h3>
       </div>
 
-      <div>
+      <div *ngFor="let check of SelectSeat" style="float: left;padding: 10px">
+        <li class="row row--1">
+          <ol class="seats" type="A">
+            <li class="seat">
+              <input type="checkbox" id="{{check.seat}}A" [disabled]="check.disabledcheck" [(ngModel)]="check.modelcheck"   (click)="bookticket(check.seat,check.modelcheck)" />
+              <label for="{{check.seat}}A"  style="padding: 10px">{{check.seat}}</label>
+            </li>
+          </ol>
+        </li>
+      </div>
+
+      <!-- <div>
         <ol *ngFor="let check of SelectSeat">
           <li class="row row--1">
             <ol class="seats" type="A">
@@ -48,11 +59,13 @@
             </ol>
           </li>
         </ol>
-      </div>
+      </div> -->
 
       <div>
         <br>
-        <button ion-button full color="primary">Confirm Seats</button>
+        <button ion-button full color="primary" (click)="confirmtickets()">Confirm Seats</button>
+        <button ion-button full color="primary" (click)="trackbus()">Track your bus</button>
+        <!-- <button ion-button full color="primary" (click)="resetseats()">Reset Seats</button> -->
       </div>
     </div>
 

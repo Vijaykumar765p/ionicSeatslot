@@ -62,6 +62,29 @@ gettolocation(trip) {
   });  
 }
 
+getbusticketdetails(bustrip_id)
+{
+    return new Promise(resolve => {
+      this.HttpClient.get(apiUrl+'getbusticketdetails?bustrip_id='+bustrip_id).subscribe(data => {
+        resolve(data);
+        console.log(data);
+      }, err => {
+        console.log(err);
+      });
+    }); 
+}
+
+confirmseats(seats) {
+  return new Promise(resolve => {
+    this.HttpClient.get(apiUrl+'confirmseats?seats='+seats).subscribe(data => {
+      resolve(data);
+      console.log(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+
 
 /*----------------------------------------------------------------------------------------------------------*/
 // Post() methods

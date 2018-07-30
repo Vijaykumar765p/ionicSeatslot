@@ -45,7 +45,7 @@ page-home {
       .seat {
         display: flex;
         flex: 0 0 14.28571428571429%;
-        padding: 4px;
+        padding: 1px;
         position: relative;  
         &:nth-child() {
           margin-left: 14.28571428571429%;
@@ -87,7 +87,7 @@ page-home {
           position: relative;    
           width: 100%;    
           text-align: center;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: bold;
           line-height: 1.5rem;
           padding: 5px 0;
