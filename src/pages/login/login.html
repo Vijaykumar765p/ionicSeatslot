@@ -14,6 +14,9 @@
           Email ID
         </ion-label>
         <ion-input type="text" name="username" [(ngModel)]="user.username" autocapitalize="off" required></ion-input>
+
+        <!-- ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" -->
+
       </ion-item>
       <ion-item>
         <ion-label floating>
@@ -23,9 +26,9 @@
         <ion-input type="password" name="password" [(ngModel)]="user.password" autocapitalize="off" required></ion-input>
       </ion-item>
       <div>
-          <button id="login" [disabled]="!formCtrl.form.valid" ion-button color="positive" block on-click="login(loginData)">
-              Log in
-            </button>
+        <button id="login" [disabled]="!formCtrl.form.valid" ion-button color="positive" block on-click="login(loginData)">
+          Log in
+        </button>
         <p text-right ion-text color="primary" tappable (click)="forgotPass()">
           <strong>Forgot Password?</strong>
         </p>

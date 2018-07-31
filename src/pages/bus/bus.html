@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Bus</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let check of SelectSeat" style="float: left;padding: 10px">
+    <li class="row row--1">
+      <ol class="seats" type="A">
+        <li class="seat">
+          <input type="checkbox" id="{{check.seat}}A" [disabled]="check.disabledcheck" [(ngModel)]="check.modelcheck" (click)="bookticket(check.seat,check.modelcheck)"
+          />
+          <label for="{{check.seat}}A" style="padding: 10px">{{check.seat}}</label>
+        </li>
+      </ol>
+    </li>
+  </div>
+
+  <div>
+    <br>
+    <button ion-button full color="primary" (click)="confirmtickets()">Confirm Seats</button>
+    <button ion-button full color="secondary" (click)="trackbus()">Track your bus</button>
+  </div>
+</ion-content>

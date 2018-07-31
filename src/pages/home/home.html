@@ -1,13 +1,13 @@
 <ion-header>
-    <ion-navbar color="primary">
-      <ion-title>Welcome</ion-title>
-      <ion-buttons end>
-          <button ion-button tappable (click)="logout()">
-            <ion-icon name="custom-logout"></ion-icon>
-          </button>
-        </ion-buttons>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Welcome</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="logout()">
+        <ion-icon name="custom-logout"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
   <ion-item>
     <ion-label>Select Trip</ion-label>
@@ -18,7 +18,7 @@
   <ion-item>
     <ion-label>From location</ion-label>
     <ion-select [(ngModel)]="locationfrom" (ionChange)="changefromlocation(locationfrom)">
-      <ion-option *ngFor="let locationfrom of locationlist" [value]="locationfrom.bustriplocid">{{ locationfrom.location }}</ion-option>
+      <ion-option *ngFor="let locationfrom of locationfromlist" [value]="locationfrom.bustriplocid">{{ locationfrom.location }}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
@@ -27,11 +27,32 @@
       <ion-option *ngFor="let locationto of locationtolist" [value]="locationto.bustriplocid">{{ locationto.location }}</ion-option>
     </ion-select>
   </ion-item>
-  <button (click)="findBus()" ion-button full color="light">Find a Bus</button>
+  <button (click)="findBus()" ion-button full color="primary">Find a Bus</button>
+
   <br>
 
-  <!-- Seat selection div -->
   <ion-item>
+    <div id="busDetail" style="display:none;">
+      <ion-list-header>
+        Select your bus
+      </ion-list-header>
+      <ion-list *ngFor="let bus of BusList">
+        <ion-item item-start tappable (click)="tapEvent()">
+          <ion-icon name="custom-bus" item-left primary></ion-icon>
+          BMTC -
+          <ion-note ion-text color="primary">
+            <!-- <ion-icon name="custom-rupee-indian" item-left></ion-icon> -->
+            {{bus.bus_name}}
+          </ion-note>
+          <p> 20 Seats Available</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-item>
+
+
+  <!-- Seat selection div -->
+  <!-- <ion-item>
     <div id="busDetail" style="display:none;">
       <div>
         <h3>Select your seats</h3>
@@ -47,27 +68,14 @@
           </ol>
         </li>
       </div>
-
-      <!-- <div>
-        <ol *ngFor="let check of SelectSeat">
-          <li class="row row--1">
-            <ol class="seats" type="A">
-              <li class="seat" display:inline>
-                <input type="checkbox" id="1A" />
-                <label for="1A">{{check.seat}}</label>
-              </li>
-            </ol>
-          </li>
-        </ol>
-      </div> -->
-
+      
       <div>
         <br>
         <button ion-button full color="primary" (click)="confirmtickets()">Confirm Seats</button>
-        <button ion-button full color="primary" (click)="trackbus()">Track your bus</button>
-        <!-- <button ion-button full color="primary" (click)="resetseats()">Reset Seats</button> -->
-      </div>
+        <button ion-button full color="primary" (click)="trackbus()">Track your bus</button> -->
+  <!-- <button ion-button full color="primary" (click)="resetseats()">Reset Seats</button> -->
+  <!-- </div>
     </div>
 
-  </ion-item>
+  </ion-item> -->
 </ion-content>

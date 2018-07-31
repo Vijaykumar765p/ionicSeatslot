@@ -487,6 +487,7 @@
       background: currentColor;
       width: 1em;
       height: 1em;
+      color: default;
     }
     &[class*="custom-bankcards"] {
       mask-image: url(../assets/icons/bankcards.png);
@@ -505,5 +506,8 @@
     }
     &[class*="custom-logout"] {
       mask-image: url(../assets/icons/logout.png);
+    }
+    &[class*="custom-bus"] {
+      mask-image: url(../assets/icons/bus.png);
     }
   }

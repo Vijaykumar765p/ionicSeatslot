@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AppMinimize } from '@ionic-native/app-minimize';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -10,6 +11,7 @@ import { Device } from '@ionic-native/device';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { BusPage } from '../pages/bus/bus';
 import { TrackbusPage } from '../pages/trackbus/trackbus';
 import { RestProvider } from '../providers/rest/rest';
 
@@ -18,7 +20,8 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
-    TrackbusPage
+    TrackbusPage,
+    BusPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
-    TrackbusPage
+    TrackbusPage,
+    BusPage
   ],
   providers: [
     StatusBar,
@@ -39,7 +43,8 @@ import { RestProvider } from '../providers/rest/rest';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     Geolocation,
-    Device
+    Device,
+    AppMinimize
   ]
 })
 export class AppModule {}

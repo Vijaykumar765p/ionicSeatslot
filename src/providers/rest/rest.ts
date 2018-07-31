@@ -5,7 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+// let apiUrl = 'http://192.168.1.50:2000/';
 let apiUrl = 'http://192.168.1.20:2000/';
+// let apiUrl = 'http://202.83.18.101:2000/';
 // const httpOptions = {
 //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 // };
@@ -32,7 +34,6 @@ getLocate() {
 getTripbusDetails() {
   return new Promise(resolve => {
     this.HttpClient.get(apiUrl+'tripbusdetails').subscribe(data => {
-      console.log(data);
       resolve(data);
     }, err => {
       console.log(err);
@@ -44,7 +45,6 @@ getfromlocation(trip) {
   return new Promise(resolve => {
     this.HttpClient.get(apiUrl+'getfromlocationdetails?bustrip_id='+trip).subscribe(data => {
       resolve(data);
-      console.log(data);
     }, err => {
       console.log(err);
     });
@@ -55,7 +55,6 @@ gettolocation(trip) {
   return new Promise(resolve => {
     this.HttpClient.get(apiUrl+'gettolocationdetails?bustrip_id='+trip).subscribe(data => {
       resolve(data);
-      console.log(data);
     }, err => {
       console.log(err);
     });
@@ -83,6 +82,18 @@ confirmseats(seats) {
       console.log(err);
     });
   });  
+}
+
+getbus()
+{
+    return new Promise(resolve => {
+      this.HttpClient.get(apiUrl+'getbus').subscribe(data => {
+        resolve(data);
+        console.log(data);
+      }, err => {
+        console.log(err);
+      });
+    }); 
 }
 
 
