@@ -16,10 +16,12 @@ export class HomePage {
   selectedtrip:any;
   selectedfromloc:any;
   selectedtoloc:any;
-
+  tripbusid: any;
+  
 
   constructor(public navCtrl: NavController, public restProvider: RestProvider,public alerCtrl: AlertController) {
      this.gettrip();
+     this.changelocation(this.tripbusid);
   }
 
   findBus()
@@ -41,9 +43,12 @@ export class HomePage {
 
   changelocation(trip)
   {
-    var tipdt=trip.split("_");
-    this.selectedtrip=tipdt[0]+"_"+tipdt[1];
-    
+
+    if(trip)
+    {
+      var tipdt=trip.split("_");
+      this.selectedtrip=tipdt[0]+"_"+tipdt[1];
+    }
 
     this.restProvider.getfromlocation(trip).then(data=> {
       // console.log(data);
@@ -93,13 +98,11 @@ export class HomePage {
       alert.present() 
   }
 
-  tapEvent() {
-            this.navCtrl.push(BusPage,{
-              value1: this.tripList,
-              value2: this.locationfromlist,
-              value3: this.locationtolist
-              // locationfromlist: ctrl,
-              // locationtolist: ctrl
-            })
-  }
+  tapEvent(bus_id,trip_id) 
+    {
+      var navvalue = bus_id + "_"+trip_id+ "_" +this.selectedfromloc+"_"+this.selectedtoloc ;
+      this.navCtrl.push(BusPage,{
+        value: navvalue
+      })
+    }
 }

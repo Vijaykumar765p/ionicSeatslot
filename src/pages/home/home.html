@@ -9,12 +9,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>Select Trip</ion-label>
     <ion-select [(ngModel)]="trip" (ionChange)="changelocation(trip)">
       <ion-option *ngFor="let trip of tripList" [value]="trip.bustrip_id">{{ trip.trips }} - {{trip.bus_num}}</ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
   <ion-item>
     <ion-label>From location</ion-label>
     <ion-select [(ngModel)]="locationfrom" (ionChange)="changefromlocation(locationfrom)">
@@ -23,7 +23,7 @@
   </ion-item>
   <ion-item>
     <ion-label>To Location</ion-label>
-    <ion-select [(ngModel)]="locationto">
+    <ion-select [(ngModel)]="locationto" (ionChange)="changetolocation(locationto)">
       <ion-option *ngFor="let locationto of locationtolist" [value]="locationto.bustriplocid">{{ locationto.location }}</ion-option>
     </ion-select>
   </ion-item>
@@ -37,7 +37,7 @@
         Select your bus
       </ion-list-header>
       <ion-list *ngFor="let bus of BusList">
-        <ion-item item-start tappable (click)="tapEvent()">
+        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)">
           <ion-icon name="custom-bus" item-left primary></ion-icon>
           BMTC -
           <ion-note ion-text color="primary">
