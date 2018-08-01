@@ -33,7 +33,7 @@ export class BusPage {
     this.value = navParams.data.value;
     console.log(this.value);
 
-      this.restProvider.getbusticketdetails(this.value).then(data=> {
+      this.restProvider.getbusticketdetails(this.selectedtrip).then(data=> {
           console.log(data);
           this.disableSeatsIfbooked(data);
       });
@@ -53,12 +53,12 @@ export class BusPage {
               {
                   this.SelectSeat[j].disabledcheck=true;
 
-                  if((parseInt(data[i].from_loc)<parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)<=this.selectedfromloc)
+                  if((parseInt(data[i].from_loc)<parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)<=this.value)
                   {
                       this.SelectSeat[j].disabledcheck=false;
                   }
 
-                  if((parseInt(data[i].from_loc)>parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)>=this.selectedfromloc)
+                  if((parseInt(data[i].from_loc)>parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)>=this.value)
                   {
                       this.SelectSeat[j].disabledcheck=false;
                   }
@@ -76,7 +76,7 @@ export class BusPage {
 
   bookticket(ticket,checkvaldetail)
   {
-      var newticket=this.selectedtrip+"_"+this.selectedfromloc+"_"+this.selectedtoloc+"_"+ticket;
+      var newticket=this.value+"_"+this.value+"_"+this.value+"_"+ticket;
 
       if(this.SelectSeat[ticket-1].modelcheck==false)
       {

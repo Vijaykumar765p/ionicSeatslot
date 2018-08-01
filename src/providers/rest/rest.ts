@@ -5,8 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-// let apiUrl = 'http://192.168.1.50:2000/';
-let apiUrl = 'http://192.168.1.20:2000/';
+let apiUrl = 'http://192.168.1.50:2000/';
+// let apiUrl = 'http://192.168.1.20:2000/';
 // let apiUrl = 'http://202.83.18.101:2000/';
 // const httpOptions = {
 //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

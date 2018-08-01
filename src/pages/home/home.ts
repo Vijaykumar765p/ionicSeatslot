@@ -36,7 +36,7 @@ export class HomePage {
   gettrip()
   {
     this.restProvider.getTripbusDetails().then(data=> {
-      console.log(data);
+      // console.log(data);
       this.tripList=data;
     });
   }
