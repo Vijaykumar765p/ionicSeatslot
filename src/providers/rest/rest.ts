@@ -5,12 +5,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-let apiUrl = 'http://192.168.1.50:2000/';
+// localhost
+let apiUrl = 'http://localhost:2000/';
+// Act Network
+// let apiUrl = 'http://192.168.1.50:2000/'; 
+// Intra network
 // let apiUrl = 'http://192.168.1.20:2000/';
+// Other networks
 // let apiUrl = 'http://202.83.18.101:2000/';
-// const httpOptions = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
+
 @Injectable()
 export class RestProvider {
 

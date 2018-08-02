@@ -25,7 +25,36 @@ export class BusPage {
   value: any;
 
   public SelectSeat: Array<any> = [
-    {seat: '01',modelcheck: false, disabledcheck: false},{seat: '02',modelcheck: false, disabledcheck: false},{seat: '03',modelcheck: false, disabledcheck: false},{seat: '04' ,modelcheck: false, disabledcheck: false},{seat: '05',modelcheck: false, disabledcheck: false},{seat: '06',modelcheck: false, disabledcheck: false},{seat: '07',modelcheck: false, disabledcheck: false },{seat: '08',modelcheck: false , disabledcheck: false},{seat: '09',modelcheck: false, disabledcheck: false},{seat: '10' ,modelcheck: false, disabledcheck: false},{seat: '11',modelcheck: false, disabledcheck: false},{seat: '12',modelcheck: false, disabledcheck: false},{seat: '13' ,modelcheck: false, disabledcheck: false},{seat: '14',modelcheck: false, disabledcheck: false},{seat: '15',modelcheck: false, disabledcheck: false},{seat: '16',modelcheck: false, disabledcheck: false},{seat: '17',modelcheck: false, disabledcheck: false},{seat: '18',modelcheck: false, disabledcheck: false},{seat: '19',modelcheck: false , disabledcheck: false},{seat: '20',modelcheck: false, disabledcheck: false}
+    {seat: '1',modelcheck: false, disabledcheck: false},
+    {seat: '2',modelcheck: false, disabledcheck: false},
+    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
+    {seat: '4' ,modelcheck: false, disabledcheck: false},
+    {seat: '5',modelcheck: false, disabledcheck: false},
+    {seat: '6',modelcheck: false, disabledcheck: false},
+    {seat: '7',modelcheck: false, disabledcheck: false },
+    {seat: '',modelcheck: false , disabledcheck: false, whitespace: true},
+    {seat: '9',modelcheck: false, disabledcheck: false},
+    {seat: '10' ,modelcheck: false, disabledcheck: false},
+    {seat: '11',modelcheck: false, disabledcheck: false},
+    {seat: '12',modelcheck: false, disabledcheck: false},
+    {seat: '' ,modelcheck: false, disabledcheck: false, whitespace: true},
+    {seat: '14',modelcheck: false, disabledcheck: false},
+    {seat: '15',modelcheck: false, disabledcheck: false},
+    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
+    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
+    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
+    {seat: '19',modelcheck: false , disabledcheck: false},
+    {seat: '20',modelcheck: false, disabledcheck: false},
+
+
+    
+    {seat: '1',modelcheck: false, disabledcheck: false},
+    {seat: '2',modelcheck: false, disabledcheck: false},
+    {seat: '',modelcheck: false, disabledcheck: false},
+    {seat: '4' ,modelcheck: false, disabledcheck: false},
+    {seat: '5',modelcheck: false, disabledcheck: false},
+    {seat: '6',modelcheck: false, disabledcheck: false},
+    {seat: '7',modelcheck: false, disabledcheck: false },{seat: '',modelcheck: false , disabledcheck: false},{seat: '9',modelcheck: false, disabledcheck: false},{seat: '10' ,modelcheck: false, disabledcheck: false},{seat: '11',modelcheck: false, disabledcheck: false},{seat: '12',modelcheck: false, disabledcheck: false},{seat: '' ,modelcheck: false, disabledcheck: false},{seat: '14',modelcheck: false, disabledcheck: false},{seat: '15',modelcheck: false, disabledcheck: false},{seat: '16',modelcheck: false, disabledcheck: false},{seat: '17',modelcheck: false, disabledcheck: false},{seat: '18',modelcheck: false, disabledcheck: false},{seat: '19',modelcheck: false , disabledcheck: false},{seat: '20',modelcheck: false, disabledcheck: false}
   ]
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public alerCtrl: AlertController) {
