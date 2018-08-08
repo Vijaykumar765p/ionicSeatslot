@@ -13,7 +13,7 @@
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
           Email ID
         </ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="user.username" autocapitalize="off" required></ion-input>
+        <ion-input type="text" name="username" [(ngModel)]="user.username" ng-maxlength="10" autocapitalize="off" required ></ion-input>
 
         <!-- ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" -->
 
@@ -23,7 +23,7 @@
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
           Password
         </ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password" autocapitalize="off" required></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="user.password" ng-maxlength="10" autocapitalize="off" required ></ion-input>
       </ion-item>
       <div>
         <button id="login" [disabled]="!formCtrl.form.valid" ion-button color="positive" block on-click="login(loginData)">

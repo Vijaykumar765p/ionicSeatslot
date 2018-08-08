@@ -28,22 +28,21 @@
       <ion-option *ngFor="let locationto of locationtolist" [value]="locationto.bustriplocid">{{ locationto.location }}</ion-option>
     </ion-select>
   </ion-item>
-  <button (click)="findBus()" ion-button full color="primary">Find a Bus</button>
+  <button (click)="findBus()" ion-button full color="teal">Find a Bus</button>
 
   <br>
 
   <ion-item>
     <div id="busDetail" style="display:none;">
       
-      <ion-list-header>
+      <h3 style="color: #488aff;">
         Select your bus
-      </ion-list-header>
-      <ion-list *ngFor="let bus of BusList">
-        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)">
+     </h3>
+      <ion-list inset no-lines *ngFor="let bus of BusList" style="margin: 0px;">
+        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)" >
           <ion-icon name="custom-bus" item-left primary></ion-icon>
-          BMTC -
+          BUS -
           <ion-note ion-text color="primary">
-            <!-- <ion-icon name="custom-rupee-indian" item-left></ion-icon> -->
             {{bus.bus_name}}
           </ion-note>
           <p> 20 Seats Available</p>

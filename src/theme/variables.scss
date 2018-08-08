@@ -38,7 +38,17 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+  ),
+  lightgreen: #1abc9c,
+  col1:       #e74c3c,
+  assertive:  #ef473a,
+  royal:     (base: #886aea,
+              contrast: #ffffff),
+  teal:       #00bfa5
 );
 
 
@@ -86,3 +96,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import './gradient-mixins';

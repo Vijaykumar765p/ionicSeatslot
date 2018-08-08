@@ -6,13 +6,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 // localhost
-let apiUrl = 'http://localhost:2000/';
+// let apiUrl = 'http://localhost:5000/';
 // Act Network
-// let apiUrl = 'http://192.168.1.50:2000/'; 
+let apiUrl = 'http://192.168.1.50:5000/'; 
 // Intra network
-// let apiUrl = 'http://192.168.1.20:2000/';
+// let apiUrl = 'http://192.168.1.20:5000/';
 // Other networks
-// let apiUrl = 'http://202.83.18.101:2000/';
+// let apiUrl = 'http://202.83.18.101:5000/';
 
 @Injectable()
 export class RestProvider {
@@ -87,10 +87,10 @@ confirmseats(seats) {
   });  
 }
 
-getbus()
+getbus(fromtoloc)
 {
     return new Promise(resolve => {
-      this.HttpClient.get(apiUrl+'getbus').subscribe(data => {
+      this.HttpClient.get(apiUrl+'getbus?fromtoloc='+fromtoloc).subscribe(data => {
         resolve(data);
         console.log(data);
       }, err => {

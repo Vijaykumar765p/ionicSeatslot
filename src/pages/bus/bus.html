@@ -1,29 +1,27 @@
-<html>
-
-<!-- <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-</head> -->
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Bus</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <!-- <div *ngFor="let check of SelectSeat" style="float: left;padding: 10px">
-    <li class="row row--1">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="{{check.seat}}A" [disabled]="check.disabledcheck" [(ngModel)]="check.modelcheck" (click)="bookticket(check.seat,check.modelcheck)"
-          />
-          <label for="{{check.seat}}A" style="padding: 10px">{{check.seat}}</label>
-        </li>
-      </ol>
-    </li>
+<ion-content padding ng-controller="ExampleController">
+  <form name="myForm" novalidate>
+  <!-- <div>
+    <h6>
+      From:
+      <strong>
+
+      </strong>
+    </h6>
+    <h6>
+        To:
+        <strong>
+  
+        </strong>
+      </h6>
   </div> -->
 
-  <h3>Select your seats</h3>
+  <h5>Select your seats</h5>
   <div class="row">
     <div class="plane">
       <div class="container">
@@ -34,32 +32,24 @@
               <div class="col-md-2">
                 <ol class="seats" type="A">
                   <li class="seat">
-                    <input type="checkbox" disabled id="A" />
-                    <label for="A">A</label>
                   </li>
                 </ol>
               </div>
               <div class="col-md-2">
                 <ol class="seats" type="B">
                   <li class="seat">
-                    <input type="checkbox" disabled id="B" />
-                    <label for="B">B</label>
                   </li>
                 </ol>
               </div>
               <div class="col-md-2">
                 <ol class="seats" type="B">
                   <li class="seat">
-                    <input type="checkbox" disabled id="C" />
-                    <label for="C">C</label>
                   </li>
                 </ol>
               </div>
               <div class="col-md-2">
                 <ol class="seats" type="B">
                   <li class="seat">
-                    <input type="checkbox" disabled id="D" />
-                    <label for="D">D</label>
                   </li>
                 </ol>
               </div>
@@ -68,29 +58,58 @@
                 <ol class="seats" type="B">
                   <li class="seat">
                     <input type="checkbox" disabled id="Dr" />
-                    <label for="Dr" style="margin-left: 83px; background-color:  red;">
+                    <label for="Dr" style="margin-left: 85px; margin-top: 20px; background-color:  red;">
                       <ion-icon name="custom-steering-wheel"></ion-icon>
                     </label>
                   </li>
                 </ol>
               </div>
             </div>
+
             <br>
             <br>
             <br>
             <br>
+
             <!-- Row-2 -->
+
             <div class="col-md-12">
               <div class="col-md-1" *ngFor="let check of SelectSeat; index as i;">
                 <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="{{check.seat}}A" [disabled]="check.disabledcheck" [(ngModel)]="check.modelcheck" (click)="bookticket(check.seat,check.modelcheck)"
+                  <li class="seat" *ngIf="check.seat>0">
+                    <input type="checkbox" id="{{check.seat}}A" [disabled]="check.disabledcheck" ng-model="check.modelcheck" (click)="bookticket(check.seat,check.modelcheck,check.sindex)"
                     />
                     <label for="{{check.seat}}A">{{check.seat}}</label>
                   </li>
                 </ol>
               </div>
             </div>
+
+            <div class="col-md-12">
+              <div class="col-md-3">
+                <ol class="seats" type="Available">
+                  <li class="seat">
+                    <!-- <input type="checkbox" disabled id="Booked"/> -->
+                    <label for="Available" style="color: white; width: 30px;
+                    margin-right: 5px;">1
+                    </label> Available
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="col-md-3">
+                  <ol class="seats" type="Booked">
+                    <li class="seat">
+                      <input type="checkbox" disabled id="Booked"/>
+                      <label for="Booked" style="color: #6C7AFD; width: 30px;
+                      margin: 0px 10px 5px 10px;" >1
+                      </label> Booked
+                    </li>
+                  </ol>
+                </div>
+              </div>
 
           </div>
         </div>
@@ -99,9 +118,8 @@
   </div>
   <br>
   <div>
-    <button ion-button full color="primary" (click)="confirmtickets()">Confirm Seats</button>
-    <button ion-button full color="secondary" (click)="trackbus()">Track your bus</button>
+    <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="confirmtickets()">Confirm Seats</button>
+    <button ion-button full color="twitter" (click)="trackbus()">Track your bus</button>
   </div>
+  </form>
 </ion-content>
-
-</html>

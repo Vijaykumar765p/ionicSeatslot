@@ -26,8 +26,9 @@ export class HomePage {
 
   findBus()
   {
+    var fromtoloc= this.selectedfromloc+"_"+this.selectedtoloc;
       document.getElementById('busDetail').style.display = "block";
-        this.restProvider.getbus().then(data=> {
+        this.restProvider.getbus(fromtoloc).then(data=> {
             this.BusList=data;
         });
 

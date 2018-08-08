@@ -15,6 +15,7 @@ import { BusPage } from '../pages/bus/bus';
 import { TrackbusPage } from '../pages/trackbus/trackbus';
 import { RestProvider } from '../providers/rest/rest';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,9 +26,11 @@ import { RestProvider } from '../providers/rest/rest';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      scrollAssist: false, 
+      autoFocusAssist: false}),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController} from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { TrackbusPage } from '../trackbus/trackbus';
+import { HomePage } from '../home/home';
+// import { BusPage } from '../bus/bus';
 
 /**
  * Generated class for the BusPage page.
@@ -22,45 +24,62 @@ export class BusPage {
   selectedtoloc:any;
   selectedseats:Array<any> = new Array();
   checkvaldetail:any;
-  value: any;
 
   public SelectSeat: Array<any> = [
-    {seat: '1',modelcheck: false, disabledcheck: false},
-    {seat: '2',modelcheck: false, disabledcheck: false},
-    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
-    {seat: '4' ,modelcheck: false, disabledcheck: false},
-    {seat: '5',modelcheck: false, disabledcheck: false},
-    {seat: '6',modelcheck: false, disabledcheck: false},
-    {seat: '7',modelcheck: false, disabledcheck: false },
-    {seat: '',modelcheck: false , disabledcheck: false, whitespace: true},
-    {seat: '9',modelcheck: false, disabledcheck: false},
-    {seat: '10' ,modelcheck: false, disabledcheck: false},
-    {seat: '11',modelcheck: false, disabledcheck: false},
-    {seat: '12',modelcheck: false, disabledcheck: false},
-    {seat: '' ,modelcheck: false, disabledcheck: false, whitespace: true},
-    {seat: '14',modelcheck: false, disabledcheck: false},
-    {seat: '15',modelcheck: false, disabledcheck: false},
-    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
-    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
-    {seat: '',modelcheck: false, disabledcheck: false, whitespace: true},
-    {seat: '19',modelcheck: false , disabledcheck: false},
-    {seat: '20',modelcheck: false, disabledcheck: false},
+    {sindex:1, seat: '1',modelcheck: false, disabledcheck: false},
+    {sindex:2, seat: '2',modelcheck: false, disabledcheck: false},
+    {sindex:3, seat: '',modelcheck: false, disabledcheck: false},
+    {sindex:4, seat: '3' ,modelcheck: false, disabledcheck: false},
+    {sindex:5, seat: '4',modelcheck: false, disabledcheck: false},
+    {sindex:6, seat: '5',modelcheck: false, disabledcheck: false},
+    {sindex:7, seat: '6',modelcheck: false, disabledcheck: false },
+    {sindex:8, seat: '',modelcheck: false , disabledcheck: false},
+    {sindex:9, seat: '7',modelcheck: false, disabledcheck: false},
+    {sindex:10, seat: '8' ,modelcheck: false, disabledcheck: false},
+    {sindex:11, seat: '9',modelcheck: false, disabledcheck: false},
+    {sindex:12, seat: '10',modelcheck: false, disabledcheck: false},
+    {sindex:13, seat: '' ,modelcheck: false, disabledcheck: false},
+    {sindex:14, seat: '11',modelcheck: false, disabledcheck: false},
+    {sindex:15, seat: '12',modelcheck: false, disabledcheck: false},
+    {sindex:16, seat: '',modelcheck: false, disabledcheck: false},
+    {sindex:17, seat: '',modelcheck: false, disabledcheck: false},
+    {sindex:18, seat: '',modelcheck: false, disabledcheck: false},
+    {sindex:19, seat: '13',modelcheck: false , disabledcheck: false},
+    {sindex:20, seat: '14',modelcheck: false, disabledcheck: false},
 
-
-    
-    {seat: '1',modelcheck: false, disabledcheck: false},
-    {seat: '2',modelcheck: false, disabledcheck: false},
-    {seat: '',modelcheck: false, disabledcheck: false},
-    {seat: '4' ,modelcheck: false, disabledcheck: false},
-    {seat: '5',modelcheck: false, disabledcheck: false},
-    {seat: '6',modelcheck: false, disabledcheck: false},
-    {seat: '7',modelcheck: false, disabledcheck: false },{seat: '',modelcheck: false , disabledcheck: false},{seat: '9',modelcheck: false, disabledcheck: false},{seat: '10' ,modelcheck: false, disabledcheck: false},{seat: '11',modelcheck: false, disabledcheck: false},{seat: '12',modelcheck: false, disabledcheck: false},{seat: '' ,modelcheck: false, disabledcheck: false},{seat: '14',modelcheck: false, disabledcheck: false},{seat: '15',modelcheck: false, disabledcheck: false},{seat: '16',modelcheck: false, disabledcheck: false},{seat: '17',modelcheck: false, disabledcheck: false},{seat: '18',modelcheck: false, disabledcheck: false},{seat: '19',modelcheck: false , disabledcheck: false},{seat: '20',modelcheck: false, disabledcheck: false}
+    {sindex:21, seat: '15',modelcheck: false, disabledcheck: false},
+    {sindex:22, seat: '16',modelcheck: false, disabledcheck: false},
+    {sindex:23, seat: '',modelcheck: false, disabledcheck: false},
+    {sindex:24, seat: '17' ,modelcheck: false, disabledcheck: false},
+    {sindex:25, seat: '18',modelcheck: false, disabledcheck: false},
+    {sindex:26, seat: '19',modelcheck: false, disabledcheck: false},
+    {sindex:27, seat: '20',modelcheck: false, disabledcheck: false },
+    {sindex:28, seat: '',modelcheck: false , disabledcheck: false},
+    {sindex:29, seat: '21',modelcheck: false, disabledcheck: false},
+    {sindex:30, seat: '22' ,modelcheck: false, disabledcheck: false},
+    {sindex:31, seat: '23',modelcheck: false, disabledcheck: false},
+    {sindex:32, seat: '24',modelcheck: false, disabledcheck: false},
+    {sindex:33, seat: '' ,modelcheck: false, disabledcheck: false},
+    {sindex:34, seat: '25',modelcheck: false, disabledcheck: false},
+    {sindex:35, seat: '26',modelcheck: false, disabledcheck: false},
+    {sindex:36, seat: '27',modelcheck: false, disabledcheck: false},
+    {sindex:37, seat: '28',modelcheck: false, disabledcheck: false},
+    {sindex:38, seat: '29',modelcheck: false, disabledcheck: false},
+    {sindex:39, seat: '30',modelcheck: false , disabledcheck: false},
+    {sindex:40, seat: '31',modelcheck: false, disabledcheck: false}
   ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public alerCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public alerCtrl: AlertController, public toastCtrl: ToastController) {
 
-    this.value = navParams.data.value;
-    console.log(this.value);
+    this.selectedtrip = navParams.data.value;
+    var splitdata= this.selectedtrip.split("_");
+    this.selectedfromloc=splitdata[2];
+    this.selectedtoloc=splitdata[3];
+
+    console.log(splitdata[2]);
+
+    console.log(this.selectedtrip);
+
 
       this.restProvider.getbusticketdetails(this.selectedtrip).then(data=> {
           console.log(data);
@@ -82,12 +101,12 @@ export class BusPage {
               {
                   this.SelectSeat[j].disabledcheck=true;
 
-                  if((parseInt(data[i].from_loc)<parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)<=this.value)
+                  if((parseInt(data[i].from_loc)<parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)<=this.selectedfromloc)
                   {
                       this.SelectSeat[j].disabledcheck=false;
                   }
 
-                  if((parseInt(data[i].from_loc)>parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)>=this.value)
+                  if((parseInt(data[i].from_loc)>parseInt(data[i].to_loc)) && parseInt(data[i].to_loc)>=this.selectedfromloc)
                   {
                       this.SelectSeat[j].disabledcheck=false;
                   }
@@ -103,11 +122,14 @@ export class BusPage {
       }
   }
 
-  bookticket(ticket,checkvaldetail)
+  bookticket(ticket,checkvaldetail,sindex)
   {
-      var newticket=this.value+"_"+this.value+"_"+this.value+"_"+ticket;
+      console.log(this.selectedtrip);
+      console.log(ticket);
 
-      if(this.SelectSeat[ticket-1].modelcheck==false)
+      var newticket=this.selectedtrip+"_"+ticket;
+
+      if(this.SelectSeat[sindex-1].modelcheck==false)
       {
           this.selectedseats.push(newticket);
       }
@@ -116,29 +138,49 @@ export class BusPage {
           var index=this.selectedseats.indexOf(newticket);
           this.selectedseats.splice(index,1);
       }
+
+      console.log(this.selectedseats);
   }
   checkselecteddt(ticket)
   {
       return false;
   }
 
-  confirmtickets()
+  confirmtickets(seat)
   {
       var confirmed_seats=this.selectedseats.join(",");
       this.restProvider.confirmseats(confirmed_seats).then(data=> 
       {
           // alert('Seats have booked successfully');
-          console.log(data); 
+        //   this.navCtrl.push(BusPage,{
+        //     value: this.selectedtrip
+        //   });
       });
-      let alert = this.alerCtrl.create({
-        title: 'Hi',
-        message: 'Your Seats have booked successfully',
+    //   let toast = this.toastCtrl.create({
+    //     message: 'Your Seats have been booked successfully',
+    //     duration: 3000,
+    //   });
+    //   toast.present();
+    let alert = this.alerCtrl.create({
+        message: 'Proceed to Payment',
         buttons: [{
           text: "OK",
-      }],
-      });
-      alert.present()
-  }
+          handler: () => {
+            this.navCtrl.setRoot(HomePage);
+          },
+        },
+          {
+            text: "Cancel",
+            handler: () => {
+              console.log('No clicked');
+            }
+          },
+        ],
+          });
+          alert.present() 
+}
+    //   window.location.reload();
+  
 
   trackbus(){
     this.navCtrl.push(TrackbusPage);
