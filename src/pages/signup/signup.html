@@ -1,0 +1,50 @@
+
+<ion-content class="auth-page">
+  <div class="login-content">
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <!-- <h2 ion-text class="text-primary">
+        <strong>Welcome to</strong> BMTC
+      </h2> -->
+    </div>
+    <form #formCtrl="ngForm" class="list-form">
+      <ion-item id="signup-input1">
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+          Name
+        </ion-label>
+        <ion-input type="fullname" [(ngModel)]="user.fname" name="fullname" autocapitalize="off" required></ion-input>
+      </ion-item>
+      <ion-item id="signup-input2">
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email ID
+        </ion-label>
+        <ion-input type="emailid" [(ngModel)]="user.email" name="emailid" autocapitalize="off" required></ion-input>
+      </ion-item>
+      <ion-item id="signup-input3">
+        <ion-label floating>
+          <ion-icon name="call" item-start class="text-primary"></ion-icon>
+          Mobile No
+        </ion-label>
+        <ion-input type="mobileno" [(ngModel)]="user.mobile" name="mobileno" required></ion-input>
+      </ion-item>
+      <ion-item id="signup-input4">
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="user.pwd" name="password" required></ion-input>
+      </ion-item>
+      <button color="positive" [disabled]="!formCtrl.form.valid" ion-button block (click)="signUp()">Sign Up</button>
+    </form>
+      <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="primary" tappable (click)="login()">I have an account</span>
+    </div>
+  </div>
+
+
+
+</ion-content>

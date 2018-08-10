@@ -12,8 +12,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { BusPage } from '../pages/bus/bus';
+import { PaymentPage } from '../pages/payment/payment';
+import { SignupPage } from '../pages/signup/signup';
 import { TrackbusPage } from '../pages/trackbus/trackbus';
 import { RestProvider } from '../providers/rest/rest';
+import { ProfilePage } from '../pages/profile/profile';
+import { TicketPage } from '../pages/ticket/ticket';
 
 
 @NgModule({
@@ -21,8 +25,12 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
+    SignupPage,
     TrackbusPage,
-    BusPage
+    BusPage,
+    PaymentPage,
+    ProfilePage,
+    TicketPage
   ],
   imports: [
     BrowserModule,
@@ -37,8 +45,12 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
+    SignupPage,
     TrackbusPage,
-    BusPage
+    BusPage,
+    PaymentPage,
+    ProfilePage,
+    TicketPage
   ],
   providers: [
     StatusBar,

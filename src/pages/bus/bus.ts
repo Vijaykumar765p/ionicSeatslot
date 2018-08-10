@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController} from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { TrackbusPage } from '../trackbus/trackbus';
-import { HomePage } from '../home/home';
+import { PaymentPage } from '../payment/payment';
+import { LoginPage } from '../login/login';
+
+
 // import { BusPage } from '../bus/bus';
 
 /**
@@ -24,6 +27,8 @@ export class BusPage {
   selectedtoloc:any;
   selectedseats:Array<any> = new Array();
   checkvaldetail:any;
+  from:any;
+  to:any;
 
   public SelectSeat: Array<any> = [
     {sindex:1, seat: '1',modelcheck: false, disabledcheck: false},
@@ -76,17 +81,12 @@ export class BusPage {
     this.selectedfromloc=splitdata[2];
     this.selectedtoloc=splitdata[3];
 
-    console.log(splitdata[2]);
-
-    console.log(this.selectedtrip);
-
-
       this.restProvider.getbusticketdetails(this.selectedtrip).then(data=> {
-          console.log(data);
           this.disableSeatsIfbooked(data);
       });
       this.checkvaldetail=false;
-      
+      this.from = localStorage.getItem('from');
+      this.to = localStorage.getItem('to');
   }
 
   disableSeatsIfbooked(data)
@@ -124,8 +124,6 @@ export class BusPage {
 
   bookticket(ticket,checkvaldetail,sindex)
   {
-      console.log(this.selectedtrip);
-      console.log(ticket);
 
       var newticket=this.selectedtrip+"_"+ticket;
 
@@ -138,51 +136,72 @@ export class BusPage {
           var index=this.selectedseats.indexOf(newticket);
           this.selectedseats.splice(index,1);
       }
-
-      console.log(this.selectedseats);
   }
   checkselecteddt(ticket)
   {
       return false;
   }
 
-  confirmtickets(seat)
-  {
-      var confirmed_seats=this.selectedseats.join(",");
-      this.restProvider.confirmseats(confirmed_seats).then(data=> 
-      {
-          // alert('Seats have booked successfully');
-        //   this.navCtrl.push(BusPage,{
-        //     value: this.selectedtrip
-        //   });
-      });
-    //   let toast = this.toastCtrl.create({
-    //     message: 'Your Seats have been booked successfully',
-    //     duration: 3000,
-    //   });
-    //   toast.present();
-    let alert = this.alerCtrl.create({
-        message: 'Proceed to Payment',
-        buttons: [{
-          text: "OK",
-          handler: () => {
-            this.navCtrl.setRoot(HomePage);
-          },
-        },
-          {
-            text: "Cancel",
-            handler: () => {
-              console.log('No clicked');
-            }
-          },
-        ],
-          });
-          alert.present() 
-}
-    //   window.location.reload();
-  
+  continue(){
+    var seatval = this.selectedseats ;
+      this.navCtrl.push(PaymentPage,{
+        svalue: seatval
+      })
+  }
+//   confirmtickets(seat)
+//   {
+//       var confirmed_seats=this.selectedseats.join(",");
+//       this.restProvider.confirmseats(confirmed_seats).then(data=> 
+//       {
+        
+//       });
+//     //   let toast = this.toastCtrl.create({
+//     //     message: 'Your Seats have been booked successfully',
+//     //     duration: 3000,
+//     //   });
+//     //   toast.present();
+//     let alert = this.alerCtrl.create({
+//         message: 'Proceed to Payment',
+//         buttons: [{
+//           text: "OK",
+//           handler: () => {
+//             this.navCtrl.setRoot(HomePage);
+//           },
+//         },
+//           {
+//             text: "Cancel",
+//             handler: () => {
+//               console.log('No clicked');
+//             }
+//           },
+//         ],
+//           });
+//           alert.present() 
+// } 
 
   trackbus(){
     this.navCtrl.push(TrackbusPage);
+  }
+  
+  logout(){   
+    let alert = this.alerCtrl.create({
+        title: 'Hey',
+        message: 'Do you want to Log out',
+        buttons: [{
+          text: "Yes",
+          handler: () => {
+            this.navCtrl.setRoot(LoginPage);
+            localStorage.clear();
+          },
+      },
+      {
+        text: "No",
+        handler: () => {
+          console.log('No clicked');
+        }
+      },
+    ],
+      });
+      alert.present() 
   }
 }

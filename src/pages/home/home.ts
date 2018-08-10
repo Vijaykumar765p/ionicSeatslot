@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, MenuController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../login/login';
 import { BusPage } from '../bus/bus';
@@ -17,11 +17,13 @@ export class HomePage {
   selectedfromloc:any;
   selectedtoloc:any;
   tripbusid: any;
+
   
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider,public alerCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider,public alerCtrl: AlertController, public menu: MenuController) {
      this.gettrip();
      this.changelocation(this.tripbusid);
+     this.menu.swipeEnable(true);
   }
 
   findBus()
@@ -54,19 +56,43 @@ export class HomePage {
     this.restProvider.getfromlocation(trip).then(data=> {
       // console.log(data);
       this.locationfromlist=data;
-      console.log(this.locationfromlist);
     }
     );
   }
+
+  // getFromToLocation(id,type)
+  // {
+  //   for(var i=0;i<this.locationfromlist.length;i++)
+  //   {
+  //     if(this.locationfromlist[i].loc_id==id)
+  //     {
+  //       if(type=='from')
+  //       {
+  //         localStorage.setItem('from', this.locationfromlist[i].location);
+  //       }else{
+  //         localStorage.setItem('to', this.locationtolist[i].location);
+  //       }
+  //     }
+  //   }
+  // }
 
   changefromlocation(locationfrom)
   {    
       var fromloc=locationfrom.split("_");
       this.selectedfromloc=fromloc[2];
 
+  for(var i=0;i<this.locationfromlist.length;i++)
+    {
+      if(this.locationfromlist[i].loc_id==this.selectedfromloc)
+      {
+        localStorage.setItem('from', this.locationfromlist[i].location);
+      }
+    }
+
+
+      // this.getFromToLocation(this.selectedfromloc,'from');
       this.restProvider.gettolocation(locationfrom).then(data=> {
         this.locationtolist=data;
-        console.log(this.locationtolist);
       });
   }
 
@@ -74,7 +100,15 @@ export class HomePage {
   {
     var toloc=locationto.split("_");
     this.selectedtoloc =toloc[2];
-    console.log(toloc);
+
+    for(var i=0;i<this.locationtolist.length;i++)
+    {
+      if(this.locationtolist[i].loc_id==this.selectedtoloc)
+      {
+        localStorage.setItem('to', this.locationtolist[i].location);
+      }
+    }
+    // this.getFromToLocation(this.selectedtoloc,'to');
   }
 
   logout(){   
@@ -91,7 +125,7 @@ export class HomePage {
       {
         text: "No",
         handler: () => {
-          console.log('No clicked');
+         
         }
       },
     ],

@@ -69,7 +69,6 @@ getbusticketdetails(bustrip_id)
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'getbusticketdetails?bustrip_id='+bustrip_id).subscribe(data => {
         resolve(data);
-        console.log(data);
       }, err => {
         console.log(err);
       });
@@ -80,7 +79,6 @@ confirmseats(seats) {
   return new Promise(resolve => {
     this.HttpClient.get(apiUrl+'confirmseats?seats='+seats).subscribe(data => {
       resolve(data);
-      console.log(data);
     }, err => {
       console.log(err);
     });
@@ -92,11 +90,21 @@ getbus(fromtoloc)
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'getbus?fromtoloc='+fromtoloc).subscribe(data => {
         resolve(data);
-        console.log(data);
       }, err => {
         console.log(err);
       });
     }); 
+}
+
+getUser(id) {
+  return new Promise(resolve => {
+    this.HttpClient.get(apiUrl+'user/'+id).subscribe(data => {
+      // console.log(data);
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
 }
 
 
@@ -121,4 +129,24 @@ getbus(fromtoloc)
                       console.log(JSON.stringify(error.json()));
           });
   }
+
+  doSignUp(formdata,cb) {
+    let headers = new Headers({
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json, text/plain, */*'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+      this.http
+          .post(apiUrl+'signup/', formdata, options)
+          .subscribe(data => 
+          {
+            cb(data);
+                
+          }, error => {
+                      console.log(JSON.stringify(error.json()));
+          });
+  }
 }
+
+        

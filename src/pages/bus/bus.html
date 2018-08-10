@@ -1,25 +1,31 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Bus</ion-title>
+    <ion-title>BMTC Online Booking</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button tappable (click)="logout()">
+        <ion-icon name="custom-logout"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding ng-controller="ExampleController">
-  <form name="myForm" novalidate>
-  <!-- <div>
-    <h6>
+  <form name="myForm" novalidate style="margin-top: -20px;">
+    <p>
       From:
-      <strong>
-
+      <strong style="margin-left: 10px">
+        {{from}}
       </strong>
-    </h6>
-    <h6>
+    </p>
+    <p>
         To:
-        <strong>
-  
+        <strong style="margin-left: 27px">
+          {{to}}
         </strong>
-      </h6>
-  </div> -->
+      </p>
 
   <h5>Select your seats</h5>
   <div class="row">
@@ -58,8 +64,9 @@
                 <ol class="seats" type="B">
                   <li class="seat">
                     <input type="checkbox" disabled id="Dr" />
-                    <label for="Dr" style="margin-left: 85px; margin-top: 20px; background-color:  red;">
-                      <ion-icon name="custom-steering-wheel"></ion-icon>
+                    <label for="Dr" style="margin-left: 85px; margin-top: 5px; background-color: white;
+                    border: 1px solid white;">
+                      <ion-icon name="custom-steering-wheel" style="font-size: 1.7em;"></ion-icon>
                     </label>
                   </li>
                 </ol>
@@ -117,8 +124,13 @@
     </div>
   </div>
   <br>
+  <!-- <div *ngFor="let seat of selectedseats">
+    <p style="text-align: right;">
+     seat.ticket</p>
+  </div> -->
   <div>
-    <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="confirmtickets()">Confirm Seats</button>
+    <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="continue()">Continue</button>
+    <!-- <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="confirmtickets()">Confirm Seats</button> -->
     <button ion-button full color="twitter" (click)="trackbus()">Track your bus</button>
   </div>
   </form>

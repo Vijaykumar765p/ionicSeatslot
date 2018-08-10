@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>BMTC Online Booking</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button tappable (click)="logout()">
+        <ion-icon name="custom-logout"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn common-bg">
+
+  <ion-card *ngFor="let user of users">
+    <div align="center">
+      <img class="profile-image" src="assets/img/blank-avatar.jpg">
+      <!-- <img [src]="user.user_photo" /> -->
+    </div>
+    <ion-card-content>
+      <h2>
+          Username:
+        <strong>
+            {{user.username}}
+        </strong>
+      </h2>
+      <h2>
+          Name
+        <strong>
+            {{user.name}}
+        </strong>
+      </h2>
+      <h2>
+          Mobile No:
+        <strong>
+            {{user.mobile}}
+        </strong>
+      </h2>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

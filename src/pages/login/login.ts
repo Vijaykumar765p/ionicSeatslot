@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ToastController, MenuController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { HomePage } from '../../pages/home/home';
-// import { SignupPage } from '../../pages/signup/signup';
+import { SignupPage } from '../../pages/signup/signup';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -15,6 +15,7 @@ export class LoginPage {
     constructor(public navCtrl: NavController,public forgotCtrl: AlertController,public menu: MenuController, public navParams: NavParams, public restProvider: RestProvider, public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
       this.loginData=navCtrl;
+      this.menu.swipeEnable(false);
     }
 
 
@@ -67,7 +68,7 @@ export class LoginPage {
     signup()
     {
       //Api connections
-      // this.navCtrl.push(SignupPage);
+      this.navCtrl.push(SignupPage);
     }
 
     forgotPass() {
