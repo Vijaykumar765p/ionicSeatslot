@@ -47,6 +47,8 @@ export class LoginPage {
                       let toast = self.toastCtrl.create({
                       message: 'Oops...! Please Enter Valid Credentials',
                       duration: 3000,
+                      position: 'middle',
+                      cssClass: 'dark-trans',
                     });
                     toast.present(toast);
                     self.user = { username: null, password: null}
@@ -86,13 +88,12 @@ export class LoginPage {
           {
             text: 'Cancel',
             handler: data => {
-              console.log('Cancel clicked');
+              
             }
           },
           {
             text: 'Send',
             handler: data => {
-              console.log('Send clicked');
               let toast = this.toastCtrl.create({
                 message: 'Email was sent successfully',
                 duration: 3000,

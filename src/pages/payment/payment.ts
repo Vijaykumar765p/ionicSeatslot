@@ -4,14 +4,6 @@ import { RestProvider } from '../../providers/rest/rest';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 
-
-/**
- * Generated class for the PaymentPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-payment',
@@ -23,7 +15,7 @@ export class PaymentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public alerCtrl: AlertController) {
     this.seatbook = navParams.data.svalue;
   }
-
+  
   ionViewDidLoad() {
    
   }

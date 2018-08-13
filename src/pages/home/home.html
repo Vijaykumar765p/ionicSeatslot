@@ -43,7 +43,7 @@
      </h3>
       <ion-list inset no-lines *ngFor="let bus of BusList" style="margin: 0px;">
         <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)" >
-          <ion-icon name="custom-bus" item-left primary></ion-icon>
+          <img class="profile-image" src="assets/icons/bus1.png" item-left>
           BUS -
           <ion-note ion-text color="primary">
             {{bus.bus_name}}

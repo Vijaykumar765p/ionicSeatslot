@@ -1,9 +1,3 @@
-<!--
-  Generated template for the PaymentPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>BMTC Online Booking</ion-title>
@@ -32,31 +26,28 @@
               </ion-col> -->
         <ion-col width-30>
           <p style="text-align: right;">
-          <ion-icon name="custom-rupee-indian" item-left style="font-size: 0.8em;"></ion-icon>
-         XXXXX</p>
+            <ion-icon name="custom-rupee-indian" item-left style="font-size: 0.8em;"></ion-icon>
+            XXXXX</p>
           <!-- <p style="text-align: right;color: #388e3c;">Free</p> -->
         </ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-  <ion-card-content>
-    <ion-item>
-      Credit / Debit / ATM Card
-      <ion-icon name="custom-bankcards" item-left></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      Net Banking
-      <ion-icon name="custom-worldwide" item-left></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      Paytm
-      <ion-icon name="custom-paytm" item-left></ion-icon>
-    </ion-item>
-  </ion-card-content>
-  </ion-card>
+  <ion-item>
+    <ion-label style="margin: 13px 8px 13px 10px;">Credit / Debit / ATM Card</ion-label>
+    <img src="assets/icons/credit-card.png" item-left>
+    <!-- <ion-icon name="custom-bankcards" item-left></ion-icon> -->
+  </ion-item>
+  <ion-item>
+    <ion-label style="margin: 13px 8px 13px 10px;">Net Banking</ion-label>
+    <img src="assets/icons/worldwide.png" item-left>
+    <!-- <ion-icon name="custom-worldwide" item-left></ion-icon> -->
+  </ion-item>
+  <ion-item>
+    <ion-label style="margin: 13px 8px 13px 10px;">Paytm</ion-label>
+    <img src="assets/icons/paytm_icon.png" item-left>
+    <!-- <ion-icon name="custom-paytm" item-left></ion-icon> -->
+  </ion-item>
   <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="confirmtickets()">Confirm Seats</button>
 </ion-content>

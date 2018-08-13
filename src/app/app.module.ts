@@ -19,7 +19,6 @@ import { RestProvider } from '../providers/rest/rest';
 import { ProfilePage } from '../pages/profile/profile';
 import { TicketPage } from '../pages/ticket/ticket';
 
-
 @NgModule({
   declarations: [
     MyApp,
