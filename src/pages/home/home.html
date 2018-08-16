@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>BMTC Online Booking</ion-title>
@@ -12,19 +11,15 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <!-- <ion-item>
-    <ion-label>Select Trip</ion-label>
-    <ion-select [(ngModel)]="trip" (ionChange)="changelocation(trip)">
-      <ion-option *ngFor="let trip of tripList" [value]="trip.bustrip_id">{{ trip.trips }} - {{trip.bus_num}}</ion-option>
-    </ion-select>
-  </ion-item> -->
+
+<ion-content>
   <ion-item>
     <ion-label>From location</ion-label>
     <ion-select [(ngModel)]="locationfrom" (ionChange)="changefromlocation(locationfrom)">
       <ion-option *ngFor="let locationfrom of locationfromlist" [value]="locationfrom.bustriplocid">{{ locationfrom.location }}</ion-option>
     </ion-select>
   </ion-item>
+
   <ion-item>
     <ion-label>To Location</ion-label>
     <ion-select [(ngModel)]="locationto" (ionChange)="changetolocation(locationto)">
@@ -37,21 +32,19 @@
 
   <ion-item>
     <div id="busDetail" style="display:none;">
-      
+
       <h3 style="color: #488aff;">
         Select your bus
-     </h3>
+      </h3>
       <ion-list inset no-lines *ngFor="let bus of BusList" style="margin: 0px;">
-        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)" >
-          <img class="profile-image" src="assets/icons/bus1.png" item-left>
-          BUS -
+        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)">
+          <img class="profile-image" src="assets/icons/bus1.png" item-left> BUS -
           <ion-note ion-text color="primary">
             {{bus.bus_name}}
           </ion-note>
           <p> 20 Seats Available</p>
         </ion-item>
       </ion-list>
-    </div>  
+    </div>
   </ion-item>
 </ion-content>
-

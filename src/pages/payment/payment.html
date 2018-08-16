@@ -12,42 +12,149 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding class="animated fadeIn common-bg">
   <ion-card>
-    <ion-card-content>
+    <!-- padding style="background:url(assets/img/bmtc1.png) no-repeat center;background-size:cover;" -->
+    <ion-card-content style="font-size: 1.3rem;
+    line-height: 0.9;">
       <ion-row class="detail-row">
-        <p>PRICE DETAILS</p>
+        <strong>Ticket Details</strong>
       </ion-row>
-      <ion-row>
-        <!-- <ion-col width-70>
-                <p>Price(1 item)</p>
-                <p>Delievery</p>
-              </ion-col> -->
-        <ion-col width-30>
-          <p style="text-align: right;">
-            <ion-icon name="custom-rupee-indian" item-left style="font-size: 0.8em;"></ion-icon>
-            XXXXX</p>
-          <!-- <p style="text-align: right;color: #388e3c;">Free</p> -->
-        </ion-col>
-      </ion-row>
+
+      <ion-grid>
+
+        <ion-row>
+          <ion-col>
+            <div>Ticket No</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">1</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>OB. Ref. No.</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">xxxxxxx</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Date</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">xx/xx/xxxx</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Trip Code</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">BMTC-HEBTF</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Class</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">VOLVO A/C</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Bus No:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">KA-01-F-0703</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Seat No's:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">01,02,03</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>From:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">{{from}}</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>To:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">{{to}}</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Time:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">00:00</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>Price:</div>
+          </ion-col>
+          <ion-col>
+            <div style="margin-left: -40px;">
+              <p>
+                <ion-icon name="custom-rupee-indian" item-left style="font-size: 0.8em;"></ion-icon>
+                - 10</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 
-  <ion-item>
-    <ion-label style="margin: 13px 8px 13px 10px;">Credit / Debit / ATM Card</ion-label>
-    <img src="assets/icons/credit-card.png" item-left>
-    <!-- <ion-icon name="custom-bankcards" item-left></ion-icon> -->
-  </ion-item>
-  <ion-item>
-    <ion-label style="margin: 13px 8px 13px 10px;">Net Banking</ion-label>
-    <img src="assets/icons/worldwide.png" item-left>
-    <!-- <ion-icon name="custom-worldwide" item-left></ion-icon> -->
-  </ion-item>
-  <ion-item>
-    <ion-label style="margin: 13px 8px 13px 10px;">Paytm</ion-label>
-    <img src="assets/icons/paytm_icon.png" item-left>
-    <!-- <ion-icon name="custom-paytm" item-left></ion-icon> -->
-  </ion-item>
-  <button ion-button full color="teal" ng-disabled="myForm.$valid" (click)="confirmtickets()">Confirm Seats</button>
+
+  <div>
+    <ion-list radio-group [(ngModel)]="myRadio">
+      <ion-item>
+        <img src="assets/icons/credit-card.png" item-left>
+        <ion-label style="margin: 13px 8px 13px 10px;">Credit / Debit / ATM Card</ion-label>
+        <ion-radio value="option1">
+        </ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style="margin: 13px 8px 13px 10px;">Net Banking</ion-label>
+        <img src="assets/icons/worldwide.png" item-left>
+        <ion-radio value="option2">
+        </ion-radio>
+        <!-- <ion-icon name="custom-worldwide" item-left></ion-icon> -->
+      </ion-item>
+      <ion-item>
+        <ion-label style="margin: 13px 8px 13px 10px;">Paytm</ion-label>
+        <img src="assets/icons/paytm_icon.png" item-left>
+        <ion-radio value="option3">
+        </ion-radio>
+        <!-- <ion-icon name="custom-paytm" item-left></ion-icon> -->
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <button ion-button full color="teal" (click)="confirmtickets()">Confirm Seats</button>
 </ion-content>

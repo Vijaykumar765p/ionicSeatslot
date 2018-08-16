@@ -8,9 +8,9 @@ import 'rxjs/add/observable/throw';
 // localhost
 // let apiUrl = 'http://localhost:5000/';
 // Act Network
-let apiUrl = 'http://192.168.1.50:5000/'; 
+// let apiUrl = 'http://192.168.1.50:5000/'; 
 // Intra network
-// let apiUrl = 'http://192.168.1.20:5000/';
+let apiUrl = 'http://192.168.1.20:5000/';
 // Other networks
 // let apiUrl = 'http://202.83.18.101:5000/';
 

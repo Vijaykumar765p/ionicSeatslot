@@ -31,9 +31,9 @@ export class HomePage {
     var fromtoloc= this.selectedfromloc+"_"+this.selectedtoloc;
       document.getElementById('busDetail').style.display = "block";
         this.restProvider.getbus(fromtoloc).then(data=> {
+          console.log(data);
             this.BusList=data;
         });
-
   }
   
   gettrip()
