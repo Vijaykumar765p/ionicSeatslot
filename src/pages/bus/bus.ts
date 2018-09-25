@@ -197,7 +197,6 @@ export class BusPage {
       {
         text: "No",
         handler: () => {
-          console.log('No clicked');
         }
       },
     ],

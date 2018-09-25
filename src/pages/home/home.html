@@ -16,7 +16,8 @@
   <ion-item>
     <ion-label>From location</ion-label>
     <ion-select [(ngModel)]="locationfrom" (ionChange)="changefromlocation(locationfrom)">
-      <ion-option *ngFor="let locationfrom of locationfromlist" [value]="locationfrom.bustriplocid">{{ locationfrom.location }}</ion-option>
+      <ion-option *ngFor="let locationfrom of locationfromlist" [value]="locationfrom.bustriplocid">{{
+        locationfrom.location }}</ion-option>
     </ion-select>
   </ion-item>
 
@@ -37,13 +38,24 @@
         Select your bus
       </h3>
       <ion-list inset no-lines *ngFor="let bus of BusList" style="margin: 0px;">
-        <ion-item item-start tappable (click)="tapEvent(bus.bus_id,bus.trip_id)">
-          <img class="profile-image" src="assets/icons/bus1.png" item-left> BUS -
-          <ion-note ion-text color="primary">
-            {{bus.bus_name}}
-          </ion-note>
-          <p> 20 Seats Available</p>
-        </ion-item>
+        <ion-grid item-start tappable (tap)="tapEvent(bus.bus_id,bus.trip_id)">
+          <ion-item><img class="profile-image" src="assets/icons/bus1.png" item-left>
+            BUS -
+            <ion-note ion-text color="primary">
+              {{bus.bus_name}}
+            </ion-note>
+            <p>{{bus.b_class}}</p>            
+            <ion-row>
+              <ion-col>
+                <p>Available seats:</p>
+              </ion-col>
+              <ion-col>
+                <p style="margin-left:10px;">10</p>
+              </ion-col>
+            </ion-row>    
+          </ion-item>
+          
+        </ion-grid>
       </ion-list>
     </div>
   </ion-item>

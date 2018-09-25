@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController  } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../login/login';
+import { EditprofilemodalPage } from '../editprofilemodal/editprofilemodal';
 
 @IonicPage()
 @Component({
@@ -11,7 +12,7 @@ import { LoginPage } from '../login/login';
 export class ProfilePage {
   users : any;
   
-  constructor(public navCtrl: NavController, public restProvider: RestProvider, public navParams: NavParams, public alerCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public navParams: NavParams, public alerCtrl: AlertController, public modalCtrl : ModalController) {
 
   }
 
@@ -44,5 +45,9 @@ export class ProfilePage {
     ],
       });
       alert.present() 
+  }
+  openModal() {
+    let modal = this.modalCtrl.create(EditprofilemodalPage);
+    modal.present();
   }
 }

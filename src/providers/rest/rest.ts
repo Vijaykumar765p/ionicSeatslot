@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 // Act Network
 // let apiUrl = 'http://192.168.1.50:5000/'; 
 // Intra network
-let apiUrl = 'http://192.168.1.20:5000/';
+let apiUrl = 'http://192.168.0.105:5000/';
 // Other networks
 // let apiUrl = 'http://202.83.18.101:5000/';
 
@@ -139,6 +139,24 @@ getUser(id) {
 
       this.http
           .post(apiUrl+'signup/', formdata, options)
+          .subscribe(data => 
+          {
+            cb(data);
+                
+          }, error => {
+                      console.log(JSON.stringify(error.json()));
+          });
+  }
+
+  doedit(formdata,cb) {
+    let headers = new Headers({
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json, text/plain, */*'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+      this.http
+          .post(apiUrl+'editprofile/', formdata, options)
           .subscribe(data => 
           {
             cb(data);

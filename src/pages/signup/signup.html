@@ -14,21 +14,21 @@
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
           Name
         </ion-label>
-        <ion-input type="fullname" [(ngModel)]="user.fname" name="fullname" autocapitalize="off" required></ion-input>
+        <ion-input type="text" [(ngModel)]="user.fname" name="fullname" autocapitalize="off" required></ion-input>
       </ion-item>
       <ion-item id="signup-input2">
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
           Email ID
         </ion-label>
-        <ion-input type="emailid" [(ngModel)]="user.email" name="emailid" autocapitalize="off" required></ion-input>
+        <ion-input type="text" [(ngModel)]="user.email" name="emailid" autocapitalize="off" required></ion-input>
       </ion-item>
       <ion-item id="signup-input3">
         <ion-label floating>
           <ion-icon name="call" item-start class="text-primary"></ion-icon>
           Mobile No
         </ion-label>
-        <ion-input type="mobileno" [(ngModel)]="user.mobile" name="mobileno" required></ion-input>
+        <ion-input type="number" [(ngModel)]="user.mobile" name="mobileno" required></ion-input>
       </ion-item>
       <ion-item id="signup-input4">
         <ion-label floating>

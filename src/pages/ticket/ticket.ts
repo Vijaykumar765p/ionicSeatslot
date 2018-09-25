@@ -15,6 +15,8 @@ import { LoginPage } from '../login/login';
   templateUrl: 'ticket.html',
 })
 export class TicketPage {
+  from: any;
+  to: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
   }

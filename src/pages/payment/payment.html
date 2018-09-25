@@ -121,7 +121,8 @@
             <div style="margin-left: -40px;">
               <p>
                 <ion-icon name="custom-rupee-indian" item-left style="font-size: 0.8em;"></ion-icon>
-                - 10</p>
+                - 10
+              </p>
             </div>
           </ion-col>
         </ion-row>
@@ -132,27 +133,28 @@
 
   <div>
     <ion-list radio-group [(ngModel)]="myRadio">
-      <ion-item>
-        <img src="assets/icons/credit-card.png" item-left>
-        <ion-label style="margin: 13px 8px 13px 10px;">Credit / Debit / ATM Card</ion-label>
-        <ion-radio value="option1">
-        </ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label style="margin: 13px 8px 13px 10px;">Net Banking</ion-label>
-        <img src="assets/icons/worldwide.png" item-left>
-        <ion-radio value="option2">
-        </ion-radio>
-        <!-- <ion-icon name="custom-worldwide" item-left></ion-icon> -->
-      </ion-item>
-      <ion-item>
-        <ion-label style="margin: 13px 8px 13px 10px;">Paytm</ion-label>
-        <img src="assets/icons/paytm_icon.png" item-left>
-        <ion-radio value="option3">
-        </ion-radio>
-        <!-- <ion-icon name="custom-paytm" item-left></ion-icon> -->
-      </ion-item>
+      <ion-grid>
+        <ion-item>
+          <img src="assets/icons/credit-card.png" item-left>
+          <ion-label style="margin: 13px 8px 13px 10px;">Credit / Debit / ATM Card</ion-label>
+          <ion-radio value="option1">
+          </ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="margin: 13px 8px 13px 10px;">Net Banking</ion-label>
+          <img src="assets/icons/worldwide.png" item-left>
+          <ion-radio value="option2">
+          </ion-radio>
+          <!-- <ion-icon name="custom-worldwide" item-left></ion-icon> -->
+        </ion-item>
+        <ion-item>
+          <ion-label style="margin: 13px 8px 13px 10px;">Paytm</ion-label>
+          <img src="assets/icons/paytm_icon.png" item-left>
+          <ion-radio value="option3">
+          </ion-radio>
+          <!-- <ion-icon name="custom-paytm" item-left></ion-icon> -->
+        </ion-item>
+      </ion-grid>
     </ion-list>
   </div>
 

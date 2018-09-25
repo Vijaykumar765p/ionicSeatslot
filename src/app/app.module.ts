@@ -18,6 +18,9 @@ import { TrackbusPage } from '../pages/trackbus/trackbus';
 import { RestProvider } from '../providers/rest/rest';
 import { ProfilePage } from '../pages/profile/profile';
 import { TicketPage } from '../pages/ticket/ticket';
+import { EditprofilemodalPage } from '../pages/editprofilemodal/editprofilemodal';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { TicketPage } from '../pages/ticket/ticket';
     BusPage,
     PaymentPage,
     ProfilePage,
-    TicketPage
+    TicketPage,
+    EditprofilemodalPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { TicketPage } from '../pages/ticket/ticket';
     BusPage,
     PaymentPage,
     ProfilePage,
-    TicketPage
+    TicketPage,
+    EditprofilemodalPage
   ],
   providers: [
     StatusBar,
@@ -58,7 +63,9 @@ import { TicketPage } from '../pages/ticket/ticket';
     RestProvider,
     Geolocation,
     Device,
-    AppMinimize
+    AppMinimize,
+    ImagePicker,
+    Base64
   ]
 })
 export class AppModule {}

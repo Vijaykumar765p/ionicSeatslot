@@ -34,6 +34,7 @@ export class HomePage {
           console.log(data);
             this.BusList=data;
         });
+        // localStorage.setItem('class', b_class);
   }
   
   gettrip()
@@ -133,7 +134,7 @@ export class HomePage {
       alert.present() 
   }
 
-  tapEvent(bus_id,trip_id) 
+  public tapEvent(bus_id,trip_id) 
     {
       var navvalue = bus_id + "_"+trip_id+ "_" +this.selectedfromloc+"_"+this.selectedtoloc ;
       this.navCtrl.push(BusPage,{

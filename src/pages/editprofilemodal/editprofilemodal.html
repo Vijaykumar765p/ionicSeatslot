@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>BMTC Online Booking</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="logout()">
+        <ion-icon name="custom-logout"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label fixed>Avatar</ion-label>
+        <ion-avatar item-end>
+          <img src="{{imgPreview}}" (click)="getPhoto()">
+        </ion-avatar>
+      </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Mobile No"></ion-input>
+    </ion-item>
+
+    <button color="positive" ion-button block (click)="editprofile()">Update</button>
+</ion-content>
